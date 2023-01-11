@@ -5,12 +5,13 @@
       <div></div>
     </el-image>
 
-    <div class="flex" style="flex-direction: column;">
+    <div class="flex" style="flex-direction: column;width: 100%">
       <div class="titleName">
         {{ name }}
       </div>
+
       <div class="flex margin">
-        <span style="white-space: nowrap ">优惠券剩余</span>
+        <span style="white-space: nowrap">优惠券剩余</span>
         <el-progress :percentage="percentage" style="width: 100%;margin-left: 8px"/>
       </div>
 
@@ -40,7 +41,6 @@ const getCoupon = (goodsId, searchId) => {
   loading.value = true;
   api.getCoupon(goodsId, searchId).then(res => {
     loading.value = false
-    console.log(window.screen.width)
     const sUserAgent = navigator.userAgent.toLowerCase();
     if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
       window.open(res.data[0].schemaUrl)
